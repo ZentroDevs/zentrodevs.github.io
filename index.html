@@ -3,97 +3,174 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ZentroDevs – Mobile apps</title>
-<meta name="description" content="ZentroDevs builds simple, useful mobile apps.">
+<title>ZentroDevs – Shape Score and Daymall</title>
+<meta name="description" content="Shape Score gives you one clear score for your body shape and tracks how it changes. By ZentroDevs.">
 <style>
   :root {
-    --bg: #f7f8fa;
+    --bg: #f6f7f5;
     --surface: #ffffff;
-    --text: #14161a;
-    --muted: #5b6270;
-    --line: #e2e5ea;
-    --accent: #2f4bd8;
+    --text: #131614;
+    --muted: #5d655f;
+    --line: #dfe3df;
+    --accent: #1d6b52;
+    --accent-ink: #ffffff;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #101216;
-      --surface: #181b21;
-      --text: #eceef2;
-      --muted: #9aa1ae;
-      --line: #2a2e37;
-      --accent: #8ea2ff;
+      --bg: #0f1210;
+      --surface: #161a17;
+      --text: #eef1ee;
+      --muted: #98a19a;
+      --line: #262c27;
+      --accent: #5fd3a8;
+      --accent-ink: #08130e;
     }
   }
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
+    margin: 0; background: var(--bg); color: var(--text);
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-    line-height: 1.6;
+    line-height: 1.65; font-size: 17px;
   }
-  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
-  header { padding: 64px 0 40px; }
-  h1 { font-size: clamp(2rem, 6vw, 3rem); line-height: 1.1; margin: 0 0 12px; letter-spacing: -0.02em; }
-  header p { color: var(--muted); font-size: 1.1rem; margin: 0; max-width: 52ch; }
-  h2 { font-size: 1.25rem; margin: 0 0 16px; }
-  section { padding: 24px 0; }
-  .app {
-    display: flex; justify-content: space-between; align-items: center; gap: 16px;
-    background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
-    padding: 16px 18px; margin-bottom: 12px;
-  }
-  .app strong { display: block; }
-  .app span { color: var(--muted); font-size: 0.95rem; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 22px; }
   a { color: var(--accent); }
-  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  footer { border-top: 1px solid var(--line); margin-top: 32px; padding: 24px 0 48px; color: var(--muted); font-size: 0.95rem; }
+  a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; }
+  nav strong { font-size: 1.05rem; letter-spacing: -0.01em; }
+  nav a { color: var(--muted); text-decoration: none; margin-left: 20px; font-size: 0.95rem; }
+  nav a:hover { color: var(--text); }
+
+  .hero { padding: 88px 0 96px; }
+  .hero h1 { font-size: clamp(2.8rem, 9vw, 5rem); line-height: 1.02; letter-spacing: -0.035em; margin: 0 0 22px; font-weight: 700; }
+  .hero p { font-size: 1.2rem; color: var(--muted); max-width: 46ch; margin: 0 0 32px; }
+  .btn {
+    display: inline-block; background: var(--accent); color: var(--accent-ink);
+    padding: 14px 24px; border-radius: 999px; text-decoration: none; font-weight: 600;
+  }
+  .btn:hover { opacity: 0.9; }
+
+  .score {
+    --v: 82;
+    width: 180px; aspect-ratio: 1; border-radius: 50%; margin: 64px 0 0;
+    background: conic-gradient(var(--accent) calc(var(--v) * 1%), var(--line) 0);
+    display: grid; place-items: center; position: relative;
+  }
+  .score::before { content: ""; position: absolute; inset: 14px; border-radius: 50%; background: var(--bg); }
+  .score span { position: relative; font-size: 3.2rem; font-weight: 700; letter-spacing: -0.03em; }
+  .score-note { color: var(--muted); font-size: 0.9rem; margin-top: 12px; }
+
+  section { padding: 72px 0; border-top: 1px solid var(--line); }
+  h2 { font-size: clamp(1.7rem, 5vw, 2.3rem); line-height: 1.15; letter-spacing: -0.025em; margin: 0 0 20px; }
+  p { margin: 0 0 18px; }
+  .lead { font-size: 1.15rem; color: var(--muted); max-width: 58ch; }
+
+  ol.steps { list-style: none; padding: 0; margin: 32px 0 0; counter-reset: s; }
+  ol.steps li { counter-increment: s; padding: 22px 0 22px 56px; border-top: 1px solid var(--line); position: relative; }
+  ol.steps li::before {
+    content: counter(s); position: absolute; left: 0; top: 22px;
+    width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--accent);
+    color: var(--accent); display: grid; place-items: center; font-weight: 600; font-size: 0.95rem;
+  }
+  ol.steps strong { display: block; margin-bottom: 4px; }
+  ol.steps span { color: var(--muted); }
+
+  dl { margin: 32px 0 0; }
+  dt { font-weight: 600; margin-top: 28px; padding-top: 28px; border-top: 1px solid var(--line); }
+  dt:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+  dd { margin: 6px 0 0; color: var(--muted); }
+
+  details { border-top: 1px solid var(--line); padding: 18px 0; }
+  details:last-of-type { border-bottom: 1px solid var(--line); }
+  summary { cursor: pointer; font-weight: 600; }
+  details p { margin: 12px 0 0; color: var(--muted); }
+
+  .also { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; flex-wrap: wrap; }
+  .also p { margin: 0; color: var(--muted); max-width: 46ch; }
+
+  footer { border-top: 1px solid var(--line); padding: 40px 0 64px; color: var(--muted); font-size: 0.95rem; }
+  footer a { color: var(--muted); margin-right: 18px; }
 </style>
 </head>
 <body>
   <div class="wrap">
-    <header>
-      <h1>ZentroDevs</h1>
-      <p>We build simple, useful mobile apps for Android.</p>
+    <nav>
+      <strong>ZentroDevs</strong>
+      <div><a href="#how">How it works</a><a href="#faq">FAQ</a><a href="#daymall">Daymall</a></div>
+    </nav>
+
+    <header class="hero">
+      <h1>Your shape, in one score.</h1>
+      <p>Shape Score gives you a simple number for your body shape and shows how it changes over time.</p>
+      <a class="btn" href="https://play.google.com/store/apps/details?id=YOUR_PACKAGE_NAME">Get it on Google Play</a>
+      <div class="score" role="img" aria-label="Example score of 82"><span>82</span></div>
+      <div class="score-note">Example score</div>
     </header>
 
     <main>
-      <section>
-        <h2>Our apps</h2>
-
-        <div class="app">
-          <div>
-            <strong>Shape Score</strong>
-            <span>Mobile app by ZentroDevs</span>
-          </div>
-          <a href="/Shape-score-privacy/">Privacy policy</a>
-        </div>
-
-        <div class="app">
-          <div>
-            <strong>Speaker Cleaner</strong>
-            <span>Mobile app by ZentroDevs</span>
-          </div>
-          <a href="/Speaker-Cleaner-Privacy/">Privacy policy</a>
-        </div>
-
-        <div class="app">
-          <div>
-            <strong>Daymall</strong>
-            <span>Mobile app by ZentroDevs</span>
-          </div>
-          <a href="/daymall-account-delete/">Account deletion</a>
-        </div>
+      <section id="about">
+        <h2>What is Shape Score?</h2>
+        <p class="lead">Shape Score is a fitness app that turns how your body looks and measures into one clear number.</p>
+        <p class="lead">Instead of guessing from the mirror or reacting to daily changes on the scale, you get a steady score you can follow week after week.</p>
       </section>
 
-      <section>
-        <h2>Contact</h2>
-        <p>Questions or feedback? Email us at <a href="mailto:youremail@example.com">youremail@example.com</a>.</p>
+      <section id="how">
+        <h2>How it works</h2>
+        <ol class="steps">
+          <li><strong>Add your details</strong><span>Enter the basics the app asks for. It only takes a minute.</span></li>
+          <li><strong>See your score</strong><span>Shape Score shows your result as a single number with a short explanation.</span></li>
+          <li><strong>Track your progress</strong><span>Come back regularly and watch your score move as your routine pays off.</span></li>
+        </ol>
+      </section>
+
+      <section id="features">
+        <h2>What you get</h2>
+        <dl>
+          <dt>One clear number</dt>
+          <dd>No charts to decode. Your score is easy to read and easy to remember.</dd>
+          <dt>Progress over time</dt>
+          <dd>See how your score changes across days and weeks, so you know what is working.</dd>
+          <dt>Simple and focused</dt>
+          <dd>No clutter and no complicated setup. Open the app, check your score, get on with your day.</dd>
+          <dt>Made for everyday fitness</dt>
+          <dd>Whether you are just starting or already training, the score gives you a steady reference point.</dd>
+        </dl>
+      </section>
+
+      <section id="faq">
+        <h2>Questions</h2>
+        <details>
+          <summary>Is Shape Score a medical app?</summary>
+          <p>No. Shape Score is for fitness and general wellness only. It does not give medical advice. Talk to a qualified professional before making health decisions.</p>
+        </details>
+        <details>
+          <summary>Which devices does it run on?</summary>
+          <p>Shape Score is available for Android on Google Play.</p>
+        </details>
+        <details>
+          <summary>Where can I read the privacy policy?</summary>
+          <p>You can read it here: <a href="/Shape-score-privacy/">Shape Score privacy policy</a>.</p>
+        </details>
+        <details>
+          <summary>How do I contact support?</summary>
+          <p>Email us at <a href="mailto:muhammadsalman2160@gmail.com">muhammadsalman2160@gmail.com</a>.</p>
+        </details>
+      </section>
+
+      <section id="daymall">
+        <h2>Also from ZentroDevs: Daymall</h2>
+        <div class="also">
+          <p>Daymall is our other app. If you want your Daymall account and data removed, use the page on the right.</p>
+          <a href="/daymall-account-delete/">Delete your Daymall account</a>
+        </div>
       </section>
     </main>
 
     <footer>
-      &copy; 2026 ZentroDevs. All rights reserved.
+      <p><a href="/Shape-score-privacy/">Shape Score privacy</a><a href="/daymall-account-delete/">Daymall account deletion</a><a href="mailto:youremail@example.com">Contact</a></p>
+      <p>&copy; 2026 ZentroDevs</p>
     </footer>
   </div>
 </body>
