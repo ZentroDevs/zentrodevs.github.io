@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZentroDevs – Mobile apps</title>
+<meta name="description" content="ZentroDevs builds simple, useful mobile apps.">
+<style>
+  :root {
+    --bg: #f7f8fa;
+    --surface: #ffffff;
+    --text: #14161a;
+    --muted: #5b6270;
+    --line: #e2e5ea;
+    --accent: #2f4bd8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #101216;
+      --surface: #181b21;
+      --text: #eceef2;
+      --muted: #9aa1ae;
+      --line: #2a2e37;
+      --accent: #8ea2ff;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+  header { padding: 64px 0 40px; }
+  h1 { font-size: clamp(2rem, 6vw, 3rem); line-height: 1.1; margin: 0 0 12px; letter-spacing: -0.02em; }
+  header p { color: var(--muted); font-size: 1.1rem; margin: 0; max-width: 52ch; }
+  h2 { font-size: 1.25rem; margin: 0 0 16px; }
+  section { padding: 24px 0; }
+  .app {
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+    padding: 16px 18px; margin-bottom: 12px;
+  }
+  .app strong { display: block; }
+  .app span { color: var(--muted); font-size: 0.95rem; }
+  a { color: var(--accent); }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  footer { border-top: 1px solid var(--line); margin-top: 32px; padding: 24px 0 48px; color: var(--muted); font-size: 0.95rem; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>ZentroDevs</h1>
+      <p>We build simple, useful mobile apps for Android.</p>
+    </header>
+
+    <main>
+      <section>
+        <h2>Our apps</h2>
+
+        <div class="app">
+          <div>
+            <strong>Shape Score</strong>
+            <span>Mobile app by ZentroDevs</span>
+          </div>
+          <a href="/Shape-score-privacy/">Privacy policy</a>
+        </div>
+
+        <div class="app">
+          <div>
+            <strong>Speaker Cleaner</strong>
+            <span>Mobile app by ZentroDevs</span>
+          </div>
+          <a href="/Speaker-Cleaner-Privacy/">Privacy policy</a>
+        </div>
+
+        <div class="app">
+          <div>
+            <strong>Daymall</strong>
+            <span>Mobile app by ZentroDevs</span>
+          </div>
+          <a href="/daymall-account-delete/">Account deletion</a>
+        </div>
+      </section>
+
+      <section>
+        <h2>Contact</h2>
+        <p>Questions or feedback? Email us at <a href="mailto:youremail@example.com">youremail@example.com</a>.</p>
+      </section>
+    </main>
+
+    <footer>
+      &copy; 2026 ZentroDevs. All rights reserved.
+    </footer>
+  </div>
+</body>
+</html>
