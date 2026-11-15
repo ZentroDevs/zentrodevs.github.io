@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ZentroDevs – Shape Score and Daymall</title>
-<meta name="description" content="Shape Score gives you one clear score for your body shape and tracks how it changes. By ZentroDevs.">
+<meta name="description" content="Shape Score is a simple drawing game: draw shapes with your finger and get a score for your accuracy. By ZentroDevs.">
 <style>
   :root {
     --bg: #f6f7f5;
@@ -53,13 +53,13 @@
   .btn:hover { opacity: 0.9; }
 
   .score {
-    --v: 82;
+    --v: 94;
     width: 180px; aspect-ratio: 1; border-radius: 50%; margin: 64px 0 0;
     background: conic-gradient(var(--accent) calc(var(--v) * 1%), var(--line) 0);
     display: grid; place-items: center; position: relative;
   }
   .score::before { content: ""; position: absolute; inset: 14px; border-radius: 50%; background: var(--bg); }
-  .score span { position: relative; font-size: 3.2rem; font-weight: 700; letter-spacing: -0.03em; }
+  .score span { position: relative; font-size: 3rem; font-weight: 700; letter-spacing: -0.03em; }
   .score-note { color: var(--muted); font-size: 0.9rem; margin-top: 12px; }
 
   section { padding: 72px 0; border-top: 1px solid var(--line); }
@@ -87,8 +87,7 @@
   summary { cursor: pointer; font-weight: 600; }
   details p { margin: 12px 0 0; color: var(--muted); }
 
-  .also { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; flex-wrap: wrap; }
-  .also p { margin: 0; color: var(--muted); max-width: 46ch; }
+  .links { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 8px 24px; }
 
   footer { border-top: 1px solid var(--line); padding: 40px 0 64px; color: var(--muted); font-size: 0.95rem; }
   footer a { color: var(--muted); margin-right: 18px; }
@@ -98,78 +97,88 @@
   <div class="wrap">
     <nav>
       <strong>ZentroDevs</strong>
-      <div><a href="#how">How it works</a><a href="#faq">FAQ</a><a href="#daymall">Daymall</a></div>
+      <div><a href="#how">How to play</a><a href="#faq">FAQ</a><a href="#daymall">Daymall</a></div>
     </nav>
 
     <header class="hero">
-      <h1>Your shape, in one score.</h1>
-      <p>Shape Score gives you a simple number for your body shape and shows how it changes over time.</p>
-      <a class="btn" href="https://play.google.com/store/apps/details?id=YOUR_PACKAGE_NAME">Get it on Google Play</a>
-      <div class="score" role="img" aria-label="Example score of 82"><span>82</span></div>
+      <h1>Draw the perfect shape.</h1>
+      <p>Shape Score is a simple drawing game. Draw a shape with your finger and get a score for how accurate it is.</p>
+      <a class="btn" href="https://play.google.com/store/apps/details?id=shapescore.app&amp;hl=en">Get it on Google Play</a>
+      <div class="score" role="img" aria-label="Example score of 94 percent"><span>94%</span></div>
       <div class="score-note">Example score</div>
     </header>
 
     <main>
       <section id="about">
         <h2>What is Shape Score?</h2>
-        <p class="lead">Shape Score is a fitness app that turns how your body looks and measures into one clear number.</p>
-        <p class="lead">Instead of guessing from the mirror or reacting to daily changes on the scale, you get a steady score you can follow week after week.</p>
+        <p class="lead">Think you can draw a perfect circle or a straight-sided triangle? Shape Score tests it.</p>
+        <p class="lead">You draw each shape with one finger, lift it when you are done, and see how close you came. Then try again and beat your best.</p>
       </section>
 
       <section id="how">
-        <h2>How it works</h2>
+        <h2>How to play</h2>
         <ol class="steps">
-          <li><strong>Add your details</strong><span>Enter the basics the app asks for. It only takes a minute.</span></li>
-          <li><strong>See your score</strong><span>Shape Score shows your result as a single number with a short explanation.</span></li>
-          <li><strong>Track your progress</strong><span>Come back regularly and watch your score move as your routine pays off.</span></li>
+          <li><strong>Choose a shape</strong><span>Pick the shape you want to draw.</span></li>
+          <li><strong>Draw it with your finger</strong><span>Trace the shape on the screen in one stroke.</span></li>
+          <li><strong>Lift your finger</strong><span>Lifting your finger finishes the drawing.</span></li>
+          <li><strong>Get your score</strong><span>See how accurate your shape was, then challenge yourself to do better.</span></li>
         </ol>
       </section>
 
       <section id="features">
         <h2>What you get</h2>
         <dl>
-          <dt>One clear number</dt>
-          <dd>No charts to decode. Your score is easy to read and easy to remember.</dd>
-          <dt>Progress over time</dt>
-          <dd>See how your score changes across days and weeks, so you know what is working.</dd>
-          <dt>Simple and focused</dt>
-          <dd>No clutter and no complicated setup. Open the app, check your score, get on with your day.</dd>
-          <dt>Made for everyday fitness</dt>
-          <dd>Whether you are just starting or already training, the score gives you a steady reference point.</dd>
+          <dt>Touch controls</dt>
+          <dd>Draw directly on your screen. There is nothing to learn before you start.</dd>
+          <dt>Multiple shapes</dt>
+          <dd>Try different shapes and find out which ones you draw best.</dd>
+          <dt>A score for every drawing</dt>
+          <dd>Each attempt is scored, so you can see exactly how accurate you were.</dd>
+          <dt>Improve with practice</dt>
+          <dd>Your hand gets steadier the more you play. Use your scores to aim for better results.</dd>
+          <dt>Quick to play</dt>
+          <dd>A round takes seconds, so it fits any short break.</dd>
         </dl>
       </section>
 
       <section id="faq">
         <h2>Questions</h2>
         <details>
-          <summary>Is Shape Score a medical app?</summary>
-          <p>No. Shape Score is for fitness and general wellness only. It does not give medical advice. Talk to a qualified professional before making health decisions.</p>
+          <summary>Is Shape Score free?</summary>
+          <p>You can download it from Google Play and play it. The game shows ads.</p>
         </details>
         <details>
           <summary>Which devices does it run on?</summary>
           <p>Shape Score is available for Android on Google Play.</p>
         </details>
         <details>
-          <summary>Where can I read the privacy policy?</summary>
-          <p>You can read it here: <a href="/Shape-score-privacy/">Shape Score privacy policy</a>.</p>
+          <summary>Does it collect my data?</summary>
+          <p>The Google Play data safety section for Shape Score lists no data collected and no data shared with third parties. You can read the full <a href="/Shape-score-privacy/">privacy policy</a>.</p>
+        </details>
+        <details>
+          <summary>Is it suitable for children?</summary>
+          <p>Shape Score is rated for ages 3 and up on Google Play.</p>
         </details>
         <details>
           <summary>How do I contact support?</summary>
-          <p>Email us at <a href="mailto:muhammadsalman2160@gmail.com">muhammadsalman2160@gmail.com</a>.</p>
+          <p>Email us at <a href="mailto:playstoreadsss@gmail.com">playstoreadsss@gmail.com</a>.</p>
         </details>
       </section>
 
       <section id="daymall">
         <h2>Also from ZentroDevs: Daymall</h2>
-        <div class="also">
-          <p>Daymall is our other app. If you want your Daymall account and data removed, use the page on the right.</p>
+        <p class="lead">Daymall is an online marketplace. Shop for products, or become a seller and list your own.</p>
+        <p class="lead">You can use one account as a buyer, a seller, or both.</p>
+        <div class="links">
+          <a href="https://play.google.com/store/apps/details?id=com.daymall.app&amp;hl=en">Get Daymall on Google Play</a>
+          <a href="/daymall-privacy/">Daymall privacy policy</a>
           <a href="/daymall-account-delete/">Delete your Daymall account</a>
         </div>
       </section>
     </main>
 
     <footer>
-      <p><a href="/Shape-score-privacy/">Shape Score privacy</a><a href="/daymall-account-delete/">Daymall account deletion</a><a href="mailto:youremail@example.com">Contact</a></p>
+      <p><a href="/Shape-score-privacy/">Shape Score privacy</a><a href="/daymall-privacy/">Daymall privacy</a><a href="/daymall-account-delete/">Daymall account deletion</a><a href="mailto:playstoreadsss@gmail.com">Contact</a></p>
       <p>&copy; 2026 ZentroDevs</p>
     </footer>
   </div>
